@@ -1,0 +1,25 @@
+
+@use "breakpoint" as *;
+
+.container {
+  margin: 0px auto;
+  padding: 0 calc(2rem / 2);
+  max-width: 100%;
+  // width: calc(100% - (2 * calc(2rem / 2)));
+
+  @include breakpoint(medium) {
+    padding: 0;
+    // padding: 0 2rem;
+    width: calc(100% - 4rem);
+  }
+
+  @include breakpoint(large) {
+    // width: calc(100% - (2 * calc(2rem / 2)));
+    padding: 0 calc(2rem / 2);
+    max-width: 1200px;
+  }
+
+  &.stretch {
+    max-width: 100%;
+  }
+}

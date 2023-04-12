@@ -1,1 +1,100 @@
-<header>Header</header>
+---
+import { Icon } from "astro-icon";
+
+// Menu Data
+const myMenu = [
+  { name: "Home", url: "/" },
+  { name: "About Me", url: "#about" },
+  { name: "Contact", url: "#contact" },
+  { name: "Projects", url: "#projects" },
+  { icon: "logo-github", url: "https://github.com/jenntenem" },
+];
+---
+
+<header>
+  <div class="menu-container">
+    <!-- Logo -->
+    <a href="/">
+      <img
+        src={(await import("../assets/img/logo.svg")).default}
+        alt="My Logo"
+        width="47"
+        height="37"
+      />
+    </a>
+    <!-- Menu -->
+    <div class="wrapper">
+      <nav>
+        <ul>
+          {
+            myMenu.map((item) => (
+              <li>
+                <a href={item.url} aria-label={item.name}>
+                  {item.name}
+                  {item.icon && <Icon pack="ion" name="logo-github" />}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <button>
+        <svg width="32" height="32" viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            d="M9.353 3C5.849 4.408 3 7.463 3 11.47A9.53 9.53 0 0 0 12.53 21c4.007 0 7.062-2.849 8.47-6.353C8.17 17.065 8.14 8.14 9.353 3z"
+          ></path></svg
+        >
+      </button>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  @use "../../assets/scss/base/_container" as *;
+
+  header {
+    position: fixed;
+    padding: 0;
+    @extend .container;
+
+    .menu-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        nav {
+          ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style-type: none;
+            background-color: var(--neutral-100);
+
+            a,
+            button {
+              text-decoration: none;
+              font-size: 1.125rem;
+              line-height: 1.6875rem;
+              transition: color 0.15s ease-in-out;
+            }
+
+            a:hover,
+            a:focus {
+              text-decoration: underline;
+              text-decoration-thickness: 1px;
+              text-decoration-style: wavy;
+              text-underline-offset: 7px;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

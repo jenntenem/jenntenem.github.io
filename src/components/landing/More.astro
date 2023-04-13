@@ -1,1 +1,98 @@
-<h2>More</h2>
+---
+import { Icon } from "astro-icon";
+
+// Data for social media icons
+const socialMedia = [
+  {
+    name: "GitHub",
+    path: "/",
+    pack: "mdi",
+    icon: "github",
+  },
+  {
+    name: "GitLab",
+    path: "/",
+    pack: "mdi",
+    icon: "gitlab",
+  },
+  {
+    name: "Twitter",
+    path: "/",
+    pack: "mdi",
+    icon: "twitter",
+  },
+  {
+    name: "Instagram",
+    path: "/",
+    pack: "mdi",
+    icon: "instagram",
+  },
+  {
+    name: "LinkedIn",
+    path: "/",
+    pack: "mdi",
+    icon: "linkedin",
+  },
+];
+---
+
+<section class="socialBar">
+  <h2>Find me in</h2>
+  <ul>
+    {
+      socialMedia.map((media) => {
+        return (
+          <li>
+            <a href={media.path} target="_blank" rel="noopener noreferrer">
+              <span class={media.icon}>
+                <Icon pack={media.pack} name={media.icon} />
+              </span>
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>
+
+<style lang="scss">
+  @use "../../assets/scss/base/_social_media" as *;
+
+  .socialBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    background-color: var(--primary--400);
+    color: var(--color-white);
+    // --tw-text-opacity: 1;
+    // color: rgba(255, 255, 255, var(--tw-text-opacity));
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    flex-wrap: nowrap;
+    padding: 0;
+    gap: 3rem;
+    li {
+      width: 4.5rem;
+      height: 4.5rem;
+
+      a {
+        text-decoration: inherit;
+
+        span {
+          width: 100%;
+          height: 100%;
+          display: inline-flex;
+          align-items: center;
+        }
+
+        @include social-media-icon($social-medias);
+      }
+    }
+  }
+</style>

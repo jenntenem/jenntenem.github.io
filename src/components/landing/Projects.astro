@@ -1,1 +1,138 @@
-<h2>Projects</h2>
+---
+import { Icon } from "astro-icon";
+
+// Data
+const Projects = [
+  {
+    title: "Project 1",
+    description: "This is a project I worked on.",
+    image: "https://via.placeholder.com/300x200",
+    link: "https://google.com",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
+  },
+  {
+    title: "Project 2",
+    description: "This is a project I worked on.",
+    image: "https://via.placeholder.com/300x200",
+    link: "https://google.com",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
+  },
+  {
+    title: "Project 3",
+    description: "This is a project I worked on.",
+    image: "https://via.placeholder.com/300x200",
+    link: "https://google.com",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
+  },
+];
+---
+
+<section>
+  <h2>Projects</h2>
+  <p>Here are some of the projects I've worked on.</p>
+  <div class="projects">
+    {
+      Projects.map((project) => {
+        return (
+          <div class="project">
+            <h3>{project.title}</h3>
+            <p>{project.content}</p>
+
+            <div class="btn-project">
+              <button class="btn">
+                <Icon name="mdi:github" class="icon" />
+              </button>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>
+
+<style lang="scss">
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: stretch;
+
+    > div.project {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 20%;
+      padding: 2rem;
+      border: 3px solid var(--neutral-700);
+      border-radius: 1rem;
+      box-shadow: 0 0 0 6px var(--neutral-100);
+      position: relative;
+      background-color: var(--neutral-100);
+
+      &:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        background-color: var(--secondary-500);
+        inset: 1rem -1rem -1rem 1rem;
+        border-radius: 1rem;
+      }
+
+      &:hover {
+        // background-color: transparent;
+        // border: 0;
+        // border-radius: 0%;
+        // box-shadow: 0 0 0 0 var(--neutral-100);
+
+        // &:after {
+        //   background-color: var(--secondary-700);
+        // }
+      }
+    }
+
+    .btn-project {
+      display: flex;
+      flex-direction: row;
+      align-items: left;
+      justify-content: center;
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+        border: none;
+        background-color: transparent;
+        position: relative;
+        transition: 0.2s linear;
+
+        .icon {
+          color: var(--secondary-500);
+          transition: 0.2s linear;
+        }
+
+        &:hover > .icon {
+          transform: scale(1.2);
+        }
+
+        &:after {
+          content: "";
+
+          position: absolute;
+          color: white;
+
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.2s linear;
+        }
+      }
+    }
+  }
+</style>

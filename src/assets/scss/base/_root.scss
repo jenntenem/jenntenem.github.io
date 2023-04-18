@@ -1,8 +1,20 @@
-
 @use "_colors" as *;
 
 :root {
   @each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+      --#{$color}-#{$shade}: #{$value};
+    }
+  }
+
+  // --theme-bg: #eee7f4;
+  // --bg: hsl(256, 27%, 19%);
+  // --theme-bg-gradient-top: var(--theme-bg);
+  // --theme-bg-gradient-bottom: #fdfeff;
+}
+
+[data-theme="dark"] {
+  @each $color, $shades in $colors-dark {
     @each $shade, $value in $shades {
       --#{$color}-#{$shade}: #{$value};
     }

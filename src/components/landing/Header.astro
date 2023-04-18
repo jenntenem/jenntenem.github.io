@@ -38,13 +38,55 @@ const myMenu = [
           }
         </ul>
       </nav>
-      <button>
-        <Icon name="iconoir:moon-sat" class="light" />
-        <!-- <Icon name="iconoir:sun-light" /> -->
+      <button id="theme-toggle">
+        <Icon name="iconoir:moon-sat" class="icon" id="dark-mode" />
+        <Icon name="iconoir:sun-light" class="icon" id="light-mode" />
       </button>
     </div>
   </div>
 </header>
+
+<script>
+  var toggle = document.getElementById("theme-toggle");
+
+  var storedTheme =
+    localStorage.getItem("theme") ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
+  if (storedTheme)
+    document.documentElement.setAttribute("data-theme", storedTheme);
+
+  var darkIcon = document.getElementById("dark-mode");
+  var lightIcon = document.getElementById("light-mode");
+  if (storedTheme === "light") {
+    darkIcon.style.display = "none";
+    lightIcon.style.display = "block";
+  } else {
+    lightIcon.style.display = "none";
+    darkIcon.style.display = "block";
+  }
+
+  toggle.onclick = function () {
+    var currentTheme = document.documentElement.getAttribute("data-theme");
+    var targetTheme = "light";
+
+    var darkIcon = document.getElementById("dark-mode");
+    var lightIcon = document.getElementById("light-mode");
+
+    if (currentTheme === "light") {
+      targetTheme = "dark";
+      darkIcon.style.display = "block";
+      lightIcon.style.display = "none";
+    } else {
+      lightIcon.style.display = "block";
+      darkIcon.style.display = "none";
+    }
+
+    document.documentElement.setAttribute("data-theme", targetTheme);
+    localStorage.setItem("theme", targetTheme);
+  };
+</script>
 
 <style lang="scss">
   @use "../../assets/scss/base/_container" as *;
@@ -98,7 +140,7 @@ const myMenu = [
           transition: color 0.15s ease-in-out;
           border-radius: 100%;
 
-          .light {
+          > .icon {
             width: 25px;
             height: 25px;
           }
@@ -107,6 +149,11 @@ const myMenu = [
           &:focus {
             color: var(--primary-500);
           }
+        }
+
+        button#light-mode,
+        button#dark-mode {
+          display: none;
         }
       }
     }

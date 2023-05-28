@@ -1,4 +1,7 @@
 ---
+import Findmein from "../components/Findmein.astro";
+
+// Data
 const hero_data = {
   title: "Jenniffer Tenempaguay",
   subtitle: "Hi, I'm Jenn",
@@ -17,6 +20,7 @@ const hero_data = {
       <h1><span>{hero_data.title}</span></h1>
       <h2>{hero_data.subtitle}</h2>
       <p>{hero_data.description}</p>
+      <Findmein />
     </div>
     <img src={hero_data.image.src} alt={hero_data.image.alt} />
   </div>

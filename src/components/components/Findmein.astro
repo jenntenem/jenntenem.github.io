@@ -22,12 +22,6 @@ const socialMedia = [
     icon: "twitter",
   },
   {
-    name: "Instagram",
-    path: "/",
-    pack: "mdi",
-    icon: "instagram",
-  },
-  {
     name: "LinkedIn",
     path: "/",
     pack: "mdi",
@@ -36,8 +30,7 @@ const socialMedia = [
 ];
 ---
 
-<section class="socialBar">
-  <h2>Find me in</h2>
+<div class="socialBar">
   <ul>
     {
       socialMedia.map((media) => {
@@ -53,7 +46,7 @@ const socialMedia = [
       })
     }
   </ul>
-</section>
+</div>
 
 <style lang="scss">
   @use "../../assets/scss/base/_social_media" as *;
@@ -63,35 +56,31 @@ const socialMedia = [
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 0;
-    background-color: var(--primary--400);
-    color: var(--color-white);
-    // --tw-text-opacity: 1;
-    // color: rgba(255, 255, 255, var(--tw-text-opacity));
-  }
+    background-color: transparent;
+    color: #f3f6fb;
+    ul {
+      display: flex;
+      justify-content: space-around;
+      list-style-type: none;
+      flex-wrap: nowrap;
+      padding: 0;
+      gap: 3rem;
+      li {
+        width: 3rem;
+        height: 3rem;
 
-  ul {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    flex-wrap: nowrap;
-    padding: 0;
-    gap: 3rem;
-    li {
-      width: 4.5rem;
-      height: 4.5rem;
+        a {
+          text-decoration: inherit;
 
-      a {
-        text-decoration: inherit;
+          span {
+            width: 100%;
+            height: 100%;
+            display: inline-flex;
+            align-items: center;
+          }
 
-        span {
-          width: 100%;
-          height: 100%;
-          display: inline-flex;
-          align-items: center;
+          @include social-media-icon($social-medias);
         }
-
-        @include social-media-icon($social-medias);
       }
     }
   }

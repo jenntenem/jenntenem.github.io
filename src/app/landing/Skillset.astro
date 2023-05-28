@@ -1,0 +1,171 @@
+---
+import { Icon } from "astro-icon";
+
+// Data
+const skillSet = [
+  {
+    title: "Project 1",
+    description: "This is a project I worked on.",
+    image: "https://via.placeholder.com/300x200",
+    link: "https://google.com",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
+    icon: "",
+  },
+  {
+    title: "Project 2",
+    description: "This is a project I worked on.",
+    image: "https://via.placeholder.com/300x200",
+    link: "https://google.com",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
+    icon: "",
+  },
+  {
+    title: "Project 3",
+    description: "This is a project I worked on.",
+    image: "https://via.placeholder.com/300x200",
+    link: "https://google.com",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
+    icon: "",
+  },
+];
+---
+
+<section>
+  <div class="container">
+    <h2>Skill-Set</h2>
+    <p>Here are some of the projects I've worked on.</p>
+    <div class="skill-set">
+      {
+        skillSet.map((project) => {
+          return (
+            <div class="skill mouse-cursor-gradient-tracking">
+              <div class="btn-project">
+                <button class="btn">
+                  <Icon name="mdi:github" class="icon" />
+                </button>
+              </div>{" "}
+              <h3>{project.title}</h3>
+              <p>{project.content}</p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+<script>
+  let buttons = document.querySelectorAll(".mouse-cursor-gradient-tracking");
+  buttons.forEach((button) => {
+    button.addEventListener("mousemove", (e) => {
+      let rect = button.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      button.style.setProperty("--x", x + "px");
+      button.style.setProperty("--y", y + "px");
+    });
+  });
+</script>
+
+<style lang="scss">
+  section {
+    padding: 4rem 0;
+
+    div.container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+
+      .skill-set {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+        align-items: stretch;
+
+        > div.skill {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 20%;
+          padding: 2rem;
+          // border: 3px solid var(--neutral-700);
+          position: relative;
+          background-color: rgba(231, 238, 243, 0.05);
+        }
+
+        .btn-project {
+          display: flex;
+          flex-direction: row;
+          align-items: left;
+          justify-content: center;
+
+          .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: red;
+            border: none;
+            background-color: transparent;
+            position: relative;
+            transition: 0.2s linear;
+
+            .icon {
+              color: var(--secondary-500);
+              transition: 0.2s linear;
+            }
+
+            &:hover > .icon {
+              transform: scale(1.2);
+            }
+
+            &:after {
+              content: "";
+
+              position: absolute;
+              color: white;
+
+              opacity: 0;
+              visibility: hidden;
+              transition: 0.2s linear;
+            }
+          }
+        }
+      }
+    }
+  }
+  .mouse-cursor-gradient-tracking {
+    position: relative;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+
+    &::before {
+      --size: 0;
+      content: "";
+      position: absolute;
+      left: var(--x);
+      top: var(--y);
+      width: var(--size);
+      height: var(--size);
+      background: radial-gradient(
+        circle closest-side,
+        rgba(57, 211, 83, 0.3),
+        transparent
+      );
+      transform: translate(-50%, -50%);
+      transition: width 0.2s ease, height 0.2s ease;
+    }
+
+    &:hover::before {
+      --size: 500px;
+    }
+  }
+</style>

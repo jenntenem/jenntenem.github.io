@@ -1,29 +1,38 @@
 ---
+import Findmein from "@components/Findmein.astro";
 ---
 
 <footer>
   <div class="container">
-    <p>
-      Built by <span><a href="/">Jenn</a></span>
-    </p>
+    <div>
+      <p>Built by <span><a href="/">Jenn</a></span></p>
+      <p>© 2023 All rights reserved.</p>
+    </div>
+    <Findmein class="footer-logos" />
   </div>
 </footer>
 
-<style lang="scss">
+<style lang="scss" scoped>
   footer {
-    display: flex;
-    justify-content: flex-end;
     background-color: #222833;
     color: #fff;
-    padding: 1rem 0;
     text-align: left;
+
     font-size: 0.8rem;
-    padding: 2rem;
-    a {
-      color: #fff;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
+    padding: 1.5rem 0;
+
+    > div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

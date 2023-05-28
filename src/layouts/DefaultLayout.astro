@@ -1,6 +1,6 @@
 ---
 // Global SCSS
-import '../assets/scss/main.scss'
+import "../assets/scss/main.scss";
 
 // Components
 import Header from "../components/landing/Header.astro";
@@ -23,14 +23,18 @@ const { title = "" } = Astro.props;
     <meta name="generator" content="My Portfolio @jenntenem" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>jenntenem | {title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Palanquin:wght@500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="container">
-      <Header />
-      <main>
-        <slot />
-      </main>
-      <Footer />
-    </div>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

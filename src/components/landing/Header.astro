@@ -4,10 +4,14 @@ import { Icon } from "astro-icon";
 // Menu Data
 const myMenu = [
   { name: "Home", url: "/" },
-  { name: "About Me", url: "#about" },
-  { name: "Contact", url: "#contact" },
+  // { name: "About Me", url: "#about" },
+  // { name: "Contact", url: "#contact" },
   { name: "Projects", url: "#projects" },
-  { icon: "logo-github", url: "https://github.com/jenntenem" },
+  {
+    name: "logo-github",
+    icon: "logo-github",
+    url: "https://github.com/jenntenem",
+  },
 ];
 ---
 
@@ -28,9 +32,9 @@ const myMenu = [
         <ul>
           {
             myMenu.map((item) => (
-              <li>
+              <li id={item.name}>
                 <a href={item.url} aria-label={item.name}>
-                  {item.name}
+                  {!item.icon && item.name}
                   {item.icon && <Icon pack="ion" name="logo-github" />}
                 </a>
               </li>
@@ -94,6 +98,8 @@ const myMenu = [
   header {
     position: fixed;
     padding: 0;
+    left: 50%;
+    transform: translateX(-50%);
     @extend .container;
 
     .menu-container {
@@ -112,23 +118,9 @@ const myMenu = [
             display: flex;
             gap: 1.5rem;
             list-style-type: none;
-            background-color: var(--neutral-100);
-
-            a,
-            button {
-              text-decoration: none;
-              font-size: 1.125rem;
-              line-height: 1.6875rem;
-              transition: color 0.15s ease-in-out;
-            }
-
-            a:hover,
-            a:focus {
-              text-decoration: underline;
-              text-decoration-thickness: 1px;
-              text-decoration-style: wavy;
-              text-underline-offset: 7px;
-              font-weight: bold;
+            #logo-github {
+              width: 30px;
+              height: 30px;
             }
           }
         }
@@ -139,6 +131,7 @@ const myMenu = [
           cursor: pointer;
           transition: color 0.15s ease-in-out;
           border-radius: 100%;
+          color: #f3f6fb;
 
           > .icon {
             width: 25px;
@@ -147,13 +140,37 @@ const myMenu = [
 
           &:hover,
           &:focus {
-            color: var(--primary-500);
+            color: #f3f6fb;
           }
         }
 
         button#light-mode,
         button#dark-mode {
           display: none;
+        }
+      }
+
+      a,
+      button {
+        text-decoration: none;
+        font-size: 1.125rem;
+        line-height: 1.6875rem;
+        transition: color 0.15s ease-in-out;
+      }
+
+      a {
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+          text-decoration-thickness: 1px;
+          // text-decoration-style: wavy;
+          text-underline-offset: 7px;
+          font-weight: bold;
+        }
+
+        &:visited,
+        &:active {
+          color: #f3f6fb;
         }
       }
     }

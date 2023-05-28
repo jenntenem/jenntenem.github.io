@@ -1,22 +1,24 @@
+---
+const hero_data = {
+  title: "Jenniffer Tenempaguay",
+  subtitle: "Hi, I'm Jenn",
+  description:
+    "I'm a fullstack web developer. I'm passionate about creating beautiful, functional websites and applications.",
+  image: {
+    src: "src/assets/img/illustration.jpg",
+    alt: "",
+  },
+};
+---
+
 <section class="hero">
-  <div class="grid">
+  <div class="container grid">
     <div>
-      <h1>jenntenem</h1>
-      <h2>Disp</h2>
-      <div>
-        <p>
-          Hi, I'm Jenntenem. I'm a web developer and designer. I'm passionate
-          about creating beautiful, functional websites and applications. I'm
-          also passionate about learning new things and sharing what I've
-          learned with others.
-        </p>
-        <p>
-          When I'm not coding, you can find me playing video games, reading, or
-          watching anime.
-        </p>
-      </div>
+      <h1><span>{hero_data.title}</span></h1>
+      <h2>{hero_data.subtitle}</h2>
+      <p>{hero_data.description}</p>
     </div>
-    <img src="src/assets/img/illustration.jpg" alt="" />
+    <img src={hero_data.image.src} alt={hero_data.image.alt} />
   </div>
 </section>
 
@@ -31,19 +33,43 @@
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
+
+      & > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
     }
-    .grid > div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0 2rem;
-    }
-    /* position: absolute; */
     img {
       width: 100%;
-      /* height: 100%; */
-      /* object-fit: cover; */
+    }
+
+    h1 {
+      color: #9ca1a7;
+      letter-spacing: 1px;
+      display: inline;
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 2.5;
+      margin: 0px;
+
+      span {
+        background-color: #222a37;
+        padding: 0.3rem 0.5rem;
+      }
+    }
+
+    h2 {
+      margin: 0px;
+      font-size: 6rem;
+    }
+
+    p {
+      color: #8490a4;
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1.5;
+      margin: 20px 0px;
     }
   }
 </style>

@@ -4,31 +4,46 @@ import { Icon } from "astro-icon";
 // Data
 const skillSet = [
   {
-    title: "Project 1",
+    title: "Git Version Control",
     description: "This is a project I worked on.",
-    image: "https://via.placeholder.com/300x200",
-    link: "https://google.com",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
-    icon: "",
+    icon: {
+      pack: "mdi",
+      name: "github",
+    },
   },
   {
-    title: "Project 2",
+    title: "Web Development",
     description: "This is a project I worked on.",
-    image: "https://via.placeholder.com/300x200",
-    link: "https://google.com",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
-    icon: "",
+    icon: {
+      pack: "ph",
+      name: "globe-thin",
+    },
   },
   {
-    title: "Project 3",
+    title: "Back-end Development",
     description: "This is a project I worked on.",
-    image: "https://via.placeholder.com/300x200",
     link: "https://google.com",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
-    icon: "",
+    icon: {
+      pack: "",
+      name: "tabler:server",
+    },
+  },
+  {
+    title: "Freelance",
+    description: "This is a project I worked on.",
+    link: "https://google.com",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
+    icon: {
+      pack: "",
+      name: "bytesize:work",
+    },
   },
 ];
 ---
@@ -42,11 +57,13 @@ const skillSet = [
         skillSet.map((project) => {
           return (
             <div class="skill mouse-cursor-gradient-tracking">
-              <div class="btn-project">
-                <button class="btn">
-                  <Icon name="mdi:github" class="icon" />
-                </button>
-              </div>{" "}
+              <div>
+                <Icon
+                  pack={project.icon.pack}
+                  name={project.icon.name}
+                  class="icon"
+                />
+              </div>
               <h3>{project.title}</h3>
               <p>{project.content}</p>
             </div>
@@ -71,7 +88,7 @@ const skillSet = [
 
 <style lang="scss">
   section {
-    padding: 4rem 0;
+    padding: 3rem 0;
 
     div.container {
       display: flex;
@@ -81,58 +98,42 @@ const skillSet = [
 
       .skill-set {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: row;
         justify-content: space-between;
-        gap: 2rem;
+        gap: 1.1rem;
         align-items: stretch;
 
         > div.skill {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          width: 20%;
           padding: 2rem;
-          // border: 3px solid var(--neutral-700);
+          border: 1px solid rgba(#e7eef3, 0.15);
+          border-radius: 5%;
           position: relative;
-          background-color: rgba(231, 238, 243, 0.05);
-        }
+          background-color: rgba(#e7eef3, 0.05);
 
-        .btn-project {
-          display: flex;
-          flex-direction: row;
-          align-items: left;
-          justify-content: center;
+          h3 {
+            letter-spacing: 2px;
+            display: inline;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 2.5;
+            margin: 0px;
+          }
 
-          .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+          p {
+            color: #9ca1a7;
+            line-height: 25px;
+          }
+
+          > div {
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            background-color: red;
-            border: none;
-            background-color: transparent;
-            position: relative;
             transition: 0.2s linear;
 
             .icon {
-              color: var(--secondary-500);
-              transition: 0.2s linear;
-            }
-
-            &:hover > .icon {
-              transform: scale(1.2);
-            }
-
-            &:after {
-              content: "";
-
-              position: absolute;
-              color: white;
-
-              opacity: 0;
-              visibility: hidden;
+              color: #39d353;
               transition: 0.2s linear;
             }
           }

@@ -4,76 +4,119 @@ import { Icon } from "astro-icon";
 // Data
 const skills = [
   {
-    name: "Html y Css",
-    package: "vscode-icons:file-type-html",
+    name: "Html",
+    icon: {
+      pack: "vscode-icons",
+      name: "file-type-html",
+    },
   },
+
   {
     name: "Css",
-    package: "vscode-icons:file-type-css",
+    icon: {
+      pack: "vscode-icons",
+      name: "file-type-css",
+    },
   },
   {
     name: "Javascript",
-    package: "logos:javascript",
+    icon: {
+      pack: "logos",
+      name: "javascript",
+    },
   },
   {
     name: "Typescript",
-    package: "logos:typescript-icon",
+    icon: {
+      pack: "logos",
+      name: "typescript-icon",
+    },
   },
   {
     name: "Angular",
-    package: "vscode-icons:file-type-angular",
+    icon: {
+      pack: "vscode-icons",
+      name: "file-type-angular",
+    },
   },
   {
     name: "Python",
-    package: "vscode-icons:file-type-python",
+    icon: {
+      pack: "vscode-icons",
+      name: "file-type-python",
+    },
   },
   {
     name: "Nodejs",
-    package: "vscode-icons:file-type-node",
+    icon: {
+      pack: "vscode-icons",
+      name: "file-type-node",
+    },
   },
   {
     name: "React",
-    package: "logos:react",
+    icon: {
+      pack: "logos",
+      name: "react",
+    },
   },
   {
     name: "Nextjs",
-    package: "logos:nextjs-icon",
+    icon: {
+      pack: "teenyicons",
+      name: "nextjs-outline",
+    },
   },
   {
     name: "Astro",
-    package: "logos:astro",
+    icon: {
+      pack: "vscode-icons",
+      name: "file-type-astro",
+    },
   },
   {
     name: "Sql Server",
-    package: "simple-icons:microsoftsqlserver",
+    icon: {
+      pack: "simple-icons",
+      name: "microsoftsqlserver",
+    },
   },
   {
     name: "Postgresql",
-    package: "logos:postgresql",
+    icon: {
+      pack: "logos",
+      name: "postgresql",
+    },
   },
 ];
 ---
 
 <section>
-  <h2>Skills</h2>
-  <div class="skills">
-    {
-      skills.map((skill) => {
-        return (
-          <div class="skill">
-            <span>
-              <Icon name={skill.package} width="80px" />
-            </span>
-            <span class="name">{skill.name}</span>
-          </div>
-        );
-      })
-    }
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills">
+      {
+        skills.map((skill) => {
+          return (
+            <div class="skill">
+              <span>
+                <Icon
+                  pack={skill.icon.pack}
+                  name={skill.icon.name}
+                  width="80px"
+                />
+              </span>
+              <span class="name">{skill.name}</span>
+            </div>
+          );
+        })
+      }
+    </div>
   </div>
 </section>
 
 <style lang="scss">
-  .skills {
+  .skiller {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -86,17 +129,60 @@ const skills = [
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
-      width: 100px;
-      height: 100px;
+      // width: 100px;
+      // height: 100px;
       //   border-radius: 10px;
       //   background-color: #f5f5f5;
-      padding: 1rem;
+      padding: 0.35rem;
       //   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
       > .name {
         font-size: 0.8rem;
         font-weight: 600;
         text-align: center;
+      }
+    }
+  }
+
+  section {
+    padding: 1rem;
+    // background-color: rgba(#e7eef3, 0.15);
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    div.container {
+      // background-color: red;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+      // background-color: #f5f5f5;
+
+      .skills {
+        flex: 2.5;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        margin: 1rem 0;
+
+        > .skill {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+          // width: 100px;
+          // height: 100px;
+          //   border-radius: 10px;
+          padding: 0.35rem;
+          //   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+          > .name {
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-align: center;
+          }
+        }
       }
     }
   }

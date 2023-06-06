@@ -19,7 +19,7 @@ const hero_data = {
     <div>
       <h1><span>{hero_data.title}</span></h1>
       <h2>{hero_data.subtitle}</h2>
-      <p>{hero_data.description}</p>
+      <p style="--d: 0s">{hero_data.description}</p>
       <Findmein />
     </div>
     <img src={hero_data.image.src} alt={hero_data.image.alt} />
@@ -74,6 +74,19 @@ const hero_data = {
       font-weight: 300;
       line-height: 1.5;
       margin: 20px 0px;
+
+      opacity: 0;
+      animation: reveal 0.5s forwards 0.15s;
+    }
+
+    @keyframes reveal {
+      from {
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
   }
 </style>

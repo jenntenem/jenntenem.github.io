@@ -1,5 +1,20 @@
 body {
   background-color: #0d1117; // #0d1117, #28303D
-  color: #f3f6fb;  
-  font-family: 'Palanquin', sans-serif;
+  color: #f3f6fb;
+  font-family: "Palanquin", sans-serif;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 1.75rem;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 4rem;
+    height: 0.15rem;
+    left: 0;
+    background-color: #39d353;
+    margin-top: 0.5rem;
+  }
 }

@@ -31,106 +31,103 @@ const Projects = [
 ---
 
 <section>
-  <h2>Projects</h2>
-  <p>Here are some of the projects I've worked on.</p>
-  <div class="projects">
-    {
-      Projects.map((project) => {
-        return (
-          <div class="project">
-            <h3>{project.title}</h3>
-            <p>{project.content}</p>
+  <div class="container">
+    <h2>Projects</h2>
+    <p>Here are some of the projects I've worked on.</p>
+    <div class="projects">
+      {
+        Projects.map((project) => {
+          return (
+            <div class="project">
+              <h3>{project.title}</h3>
+              <p>{project.content}</p>
 
-            <div class="btn-project">
-              <button class="btn">
-                <Icon name="mdi:github" class="icon" />
-              </button>
+              <div class="btn-project">
+                <button class="btn">
+                  <Icon name="mdi:github" class="icon" />
+                </button>
+              </div>
             </div>
-          </div>
-        );
-      })
-    }
+          );
+        })
+      }
+    </div>
   </div>
 </section>
 
 <style lang="scss">
-  .projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  section {
+    margin: 4rem 0;
     gap: 2rem;
-    align-items: stretch;
 
-    > div.project {
+    div.container {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      width: 20%;
-      padding: 2rem;
-      border: 3px solid var(--neutral-700);
-      border-radius: 1rem;
-      box-shadow: 0 0 0 6px var(--neutral-100);
-      position: relative;
-      background-color: var(--neutral-100);
-
-      &:after {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        background-color: var(--secondary-500);
-        inset: 1rem -1rem -1rem 1rem;
-        border-radius: 1rem;
-      }
-
-      &:hover {
-        // background-color: transparent;
-        // border: 0;
-        // border-radius: 0%;
-        // box-shadow: 0 0 0 0 var(--neutral-100);
-
-        // &:after {
-        //   background-color: var(--secondary-700);
-        // }
-      }
+      justify-content: center;
+      align-items: center;
+      gap: 1.25rem;
     }
-
-    .btn-project {
+    .projects {
       display: flex;
       flex-direction: row;
-      align-items: left;
-      justify-content: center;
+      justify-content: space-between;
+      gap: 2rem;
 
-      .btn {
+      > div.project {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: red;
-        border: none;
-        background-color: transparent;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2rem;
+        gap: 1.2rem;
+        border-radius: 1rem;
         position: relative;
-        transition: 0.2s linear;
+        border: 1px solid rgba(#e7eef3, 0.15);
+        background-color: rgba(#e7eef3, 0.05);
 
-        .icon {
-          color: var(--secondary-500);
-          transition: 0.2s linear;
+        h3 {
+          font-size: 1.5rem;
+          font-weight: 700;
         }
 
-        &:hover > .icon {
-          transform: scale(1.2);
-        }
+        .btn-project {
+          display: flex;
+          flex-direction: row;
+          align-items: left;
+          justify-content: center;
 
-        &:after {
-          content: "";
+          .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: red;
+            border: none;
+            background-color: transparent;
+            position: relative;
+            transition: 0.2s linear;
 
-          position: absolute;
-          color: white;
+            .icon {
+              color: var(--secondary-500);
+              transition: 0.2s linear;
+            }
 
-          opacity: 0;
-          visibility: hidden;
-          transition: 0.2s linear;
+            &:hover > .icon {
+              transform: scale(1.2);
+            }
+
+            &:after {
+              content: "";
+
+              position: absolute;
+              color: white;
+
+              opacity: 0;
+              visibility: hidden;
+              transition: 0.2s linear;
+            }
+          }
         }
       }
     }

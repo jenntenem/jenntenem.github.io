@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon";
 
 // Data
-const Projects = [
+const projects= [
   {
     title: "Project 1",
     description: "This is a project I worked on.",
@@ -36,7 +36,7 @@ const Projects = [
     <p>Here are some of the projects I've worked on.</p>
     <div class="projects">
       {
-        Projects.map((project) => {
+        projects.map((project) => {
           return (
             <div class="project">
               <h3>{project.title}</h3>

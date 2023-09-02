@@ -33,7 +33,11 @@ const myMenu = [
           {
             myMenu.map((item) => (
               <li id={item.name}>
-                <a href={item.url} aria-label={item.name}>
+                <a
+                  href={item.url}
+                  aria-label={item.name}
+                  target={item.icon ? "_blank" : "_self"}
+                >
                   {!item.icon && item.name}
                   {item.icon && <Icon pack="ion" name="logo-github" />}
                 </a>
@@ -51,8 +55,17 @@ const myMenu = [
 </header>
 
 <script>
-  var toggle = document.getElementById("theme-toggle");
+  // Add class to header when scrolling (for background color)
+  window.addEventListener("scroll", function () {
+    var header = document.querySelector("header");
 
+    window.scrollY > 0
+      ? header.classList.add("scroller")
+      : header.classList.remove("scroller");
+  });
+
+  // Dark and Light Mode
+  var toggle = document.getElementById("theme-toggle");
   var storedTheme =
     localStorage.getItem("theme") ||
     (window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -97,13 +110,13 @@ const myMenu = [
 
   header {
     position: fixed;
-    padding: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    @extend .container;
     letter-spacing: 2px;
+    width: 100%;
 
     .menu-container {
+      @extend .container;
+      left: 50%;
+      padding: 0;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -160,6 +173,7 @@ const myMenu = [
       }
 
       a {
+        color: #f3f6fb;
         &:hover,
         &:focus {
           text-decoration: underline;
@@ -175,5 +189,12 @@ const myMenu = [
         }
       }
     }
+  }
+
+  header.scroller {
+    background-color: #0d1117;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    background-blend-mode: overlay;
+    transition: background-color 0.5s ease-in-out;
   }
 </style>

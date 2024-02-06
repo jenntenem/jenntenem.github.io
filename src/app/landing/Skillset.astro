@@ -17,7 +17,7 @@ const skillSet = [
     title: "Web Development",
     description: "This is a project I worked on.",
     content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
     icon: {
       pack: "ph",
       name: "globe-thin",
@@ -77,9 +77,13 @@ const skillSet = [
   buttons.forEach((button) => {
     button.addEventListener("mousemove", (e) => {
       let rect = button.getBoundingClientRect();
+      // @ts-ignore
       let x = e.clientX - rect.left;
+      // @ts-ignore
       let y = e.clientY - rect.top;
+      // @ts-ignore
       button.style.setProperty("--x", x + "px");
+      // @ts-ignore
       button.style.setProperty("--y", y + "px");
     });
   });
@@ -106,6 +110,8 @@ const skillSet = [
 </script>
 
 <style lang="scss">
+  @use "../../assets/scss/base/_breakpoint" as *;
+
   section {
     padding: 3rem 0;
 
@@ -117,20 +123,33 @@ const skillSet = [
 
       .skill-set {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
         gap: 1.1rem;
         align-items: stretch;
+        flex-wrap: wrap;
+
+        @include breakpoint(small) {
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        @include breakpoint(medium or large) {
+          flex-direction: row;
+          justify-content: space-between;
+          background-color: transparent;
+        }
 
         > div.skill {
+          flex: 1 33%;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
           padding: 2rem;
           border: 1px solid rgba(#e7eef3, 0.15);
           border-radius: 5%;
-          position: relative;
           background-color: rgba(#e7eef3, 0.05);
+
+          @include breakpoint(large) {
+            flex-basis: 0%;
+          }
 
           h3 {
             letter-spacing: 2px;

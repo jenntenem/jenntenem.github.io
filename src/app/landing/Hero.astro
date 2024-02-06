@@ -27,6 +27,8 @@ const hero_data = {
 </section>
 
 <style lang="scss">
+  @use "../../assets/scss/base/_breakpoint" as *;
+
   section.hero {
     // display: block;
     height: 100vh;
@@ -36,12 +38,16 @@ const hero_data = {
     justify-content: center;
     .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
 
       & > div {
         display: flex;
         flex-direction: column;
         justify-content: center;
+      }
+
+      @include breakpoint(medium or large) {
+        grid-template-columns: 1fr 1fr;
       }
     }
     img {

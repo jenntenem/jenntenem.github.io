@@ -1,0 +1,88 @@
+---
+import { Icon } from "astro-icon";
+
+// Data
+const myBlog = {
+  title: "My Blog lorem",
+  content:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vestibulum vel, facilisis ut, auctor nec, egestas feugiat, mi.",
+  action: "Discover GitHub Actions",
+  url: "https://medium.com/@jenntenem",
+};
+---
+
+<section id="blog-section">
+  <div class="container">
+    <div class="card blog">
+      <!-- Introduction to my blog -->
+      <div>
+        <p>
+          <span>{myBlog.title}</span>
+          {myBlog.content}
+        </p>
+
+        <div class="link-icon">
+          <a class="link-mktg tf3-mktg" href={myBlog.url} target="_blank">
+            {myBlog.action}
+            <Icon name="fa-solid:arrow-right" width="12" />
+          </a>
+        </div>
+      </div>
+      <!-- Image Blog -->
+      <div class="img-blog">
+        <img
+          src="src/assets/img/blog.png"
+          alt="Blog medium Jenniffer Tenempaguyay"
+        />
+        <!-- https://via.placeholder.com/400x300 -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../assets/scss/base/_breakpoint" as *;
+  @use "../../assets/scss/base/_mixins" as *;
+  section#blog-section {
+    .blog {
+      @include flex-column();
+
+      @include breakpoint(medium or large) {
+        @include flex-row();
+      }
+
+      > div {
+        flex: 1;
+        @include flex-column();
+        padding: 3rem;
+        // background-color: white;
+
+        > p {
+          // background-color: white;
+          font-weight: 500 !important;
+          color: #848d97;
+
+          > span {
+            color: #e7eef3;
+          }
+        }
+      }
+
+      // a {
+      //   font-weight: 500;
+      // }
+      .link-icon {
+        display: inline-block;
+      }
+
+      .img-blog {
+        padding: 0;
+        img {
+          width: 100%;
+          // height: auto;
+          border-radius: 1rem;
+        }
+      }
+    }
+  }
+</style>

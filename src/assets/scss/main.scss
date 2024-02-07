@@ -3,5 +3,7 @@
 @use 'base/_colors';
 @use 'base/_container';
 @use 'base/_breakpoint';
+@use 'base/_styles';
+@use 'base/_mixins';
 
 @import 'normalize.css';

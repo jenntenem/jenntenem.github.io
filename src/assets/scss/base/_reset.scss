@@ -36,44 +36,53 @@ button {
 
 a {
   color: #f3f6fb;
-  transform: scaleX(1);
-  position: relative;
   &:hover,
   &:focus {
     // color: #39d353;
 
     outline: none;
     // transform: perspective(700px) rotateX(0.03deg) rotateY(0.03deg);
-
-    &::after {
-      content: "";
-      transform: scaleX(1);
-      transition: transform 0.3s ease-in-out;
-      transition-delay: 0.25s;
-    }
-    &::before {
-      content: "";
-      transform: scaleX(1);
-      transition: transform 0.3s ease-in-out;
-      transition-delay: 0.5s;
-    }
   }
 
   &:visited,
   &:active {
     color: #f3f6fb;
   }
-  &::after {
-    content: "";
-    position: absolute; /* Cambiar de absolute a relative */
-    bottom: -0.15em;
-    left: 0;
-    width: calc(100% - 1em);
-    height: 2px;
-    pointer-events: none;
-    background-color: currentColor;
-    transform: scaleX(0);
-    transform-origin: 0 0;
-    transition: transform 0.3s ease-in-out;
+
+  &.style-line-bottom {
+    // color: green;
+    transform: scaleX(1);
+    position: relative;
+    &:hover,
+    &:focus {
+      // color: #39d353;
+
+      &::after {
+        content: "";
+        transform: scaleX(1);
+        transition: transform 0.3s ease-in-out;
+        transition-delay: 0.25s;
+      }
+      &::before {
+        content: "";
+        transform: scaleX(1);
+        transition: transform 0.3s ease-in-out;
+        transition-delay: 0.5s;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -0.15em;
+      left: 0;
+      width: calc(100% - 1em);
+      height: 2px;
+      pointer-events: none;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: 0 0;
+      transition: transform 0.3s ease-in-out;
+    }
   }
 }

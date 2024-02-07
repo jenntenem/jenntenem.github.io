@@ -55,6 +55,7 @@ const myMenu = [
                   href={item.url}
                   aria-label={item.name}
                   target={item.icon ? "_blank" : "_self"}
+                  class="style-line-bottom"
                 >
                   {!item.icon && item.name}
                   {item.icon && <Icon pack="ion" name="logo-github" />}
@@ -191,6 +192,7 @@ const myMenu = [
           // Menu Items when is mobile view
           @include max-breakpoint(medium) {
             ul.primary-navigation {
+              position: relative;
               display: block;
               background-color: red;
               inset: 0 0 0 30%;

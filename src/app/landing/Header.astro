@@ -18,7 +18,7 @@ const myMenu = [
 <header>
   <div class="menu-container">
     <!-- Logo -->
-    <a href="/">
+    <a href="/" id="logo">
       <img
         src={(await import("../assets/img/logo.svg")).default}
         alt="My Logo"
@@ -26,10 +26,28 @@ const myMenu = [
         height="37"
       />
     </a>
+    <!-- Button Menu -->
+    <button
+      class="mobile-nav-toggle"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+    >
+      <span class="src-only"></span>
+      <Icon
+        name="icon-park-outline:hamburger-button"
+        class="icon-menu"
+        id="data-visible-show"
+      />
+      <Icon name="mi:close" class="icon-menu" id="data-visible-close" />
+    </button>
     <!-- Menu -->
     <div class="wrapper">
       <nav>
-        <ul>
+        <ul
+          id="primary-navigation"
+          data-visible="false"
+          class="primary-navigation"
+        >
           {
             myMenu.map((item) => (
               <li id={item.name}>
@@ -62,6 +80,30 @@ const myMenu = [
     window.scrollY > 0
       ? header.classList.add("scroller")
       : header.classList.remove("scroller");
+  });
+
+  // Mobile Menu
+  const primaryNav = document.querySelector(".primary-navigation");
+  const navToggle = document.querySelector(".mobile-nav-toggle");
+
+  var showMenu = document.getElementById("data-visible-show");
+  var closeMenu = document.getElementById("data-visible-close");
+  showMenu.style.display = "block";
+  closeMenu.style.display = "none";
+
+  navToggle.addEventListener("click", () => {
+    const visibility = primaryNav.getAttribute("data-visible");
+    const expanded = visibility == "true" || false;
+
+    //@ts-ignore
+    primaryNav.setAttribute("data-visible", !expanded);
+    //@ts-ignore
+    navToggle.setAttribute("aria-expanded", !expanded);
+
+    var showMenu = document.getElementById("data-visible-show");
+    var closeMenu = document.getElementById("data-visible-close");
+    closeMenu.style.display = !expanded ? "block" : "none";
+    showMenu.style.display = expanded ? "block" : "none";
   });
 
   // Dark and Light Mode
@@ -107,6 +149,8 @@ const myMenu = [
 
 <style lang="scss">
   @use "../../assets/scss/base/_container" as *;
+  @use "../../assets/scss/base/_breakpoint" as *;
+  @use "../../assets/scss/base/_mixins" as *;
 
   header {
     position: fixed;
@@ -114,13 +158,19 @@ const myMenu = [
     width: 100%;
 
     .menu-container {
-      @extend .container;
       left: 50%;
-      padding: 0;
-      display: flex;
-      justify-content: space-between;
+      @extend .container;
+      @include flex-row();
       flex-wrap: wrap;
       align-items: center;
+
+      @include max-breakpoint(medium) {
+        @include flex-column();
+
+        #logo {
+          padding: 1.5rem 0;
+        }
+      }
 
       .wrapper {
         display: flex;
@@ -128,7 +178,7 @@ const myMenu = [
         gap: 1rem;
 
         nav {
-          ul {
+          ul.primary-navigation {
             display: flex;
             gap: 1.5rem;
             list-style-type: none;
@@ -137,8 +187,44 @@ const myMenu = [
               height: 30px;
             }
           }
+
+          // Menu Items when is mobile view
+          @include max-breakpoint(medium) {
+            ul.primary-navigation {
+              display: block;
+              background-color: red;
+              inset: 0 0 0 30%;
+              background: hsl(0 0% 100% / 0.1); //hsl(0 0% 0% / 0.5);
+              backdrop-filter: blur(1rem);
+
+              position: fixed;
+              z-index: 1000;
+              flex-direction: column;
+              padding: min(20vh, 10rem) 2em;
+              margin: 0;
+
+              font-size: 1.1em;
+              --gap: 2em;
+
+              transform: translateX(0%);
+              transition: transform 350ms ease-out;
+            }
+
+            .primary-navigation[data-visible="false"] {
+              display: none;
+              transform: translate(0%);
+            }
+
+            @support (backdrop-filter: blur(1rem)) {
+              ul {
+                background: hsl(0 0% 100% / 0.1);
+                backdrop-filter: blur(1rem);
+              }
+            }
+          }
         }
 
+        // Theme Toggle
         button {
           background-color: transparent;
           border: none;
@@ -164,37 +250,41 @@ const myMenu = [
         }
       }
 
-      a,
-      button {
-        text-decoration: none;
-        font-size: 1.125rem;
-        line-height: 1.6875rem;
-        transition: color 0.15s ease-in-out;
-      }
-
-      a {
-        color: #f3f6fb;
-        &:hover,
-        &:focus {
-          text-decoration: underline;
-          text-decoration-thickness: 1px;
-          // text-decoration-style: wavy;
-          text-underline-offset: 7px;
-          font-weight: bold;
-        }
-
-        &:visited,
-        &:active {
-          color: #f3f6fb;
-        }
+      // Button Menu
+      .icon-menu {
+        width: 30px;
+        height: 30px;
       }
     }
   }
 
+  // Scrolling Header
   header.scroller {
     background-color: #0d1117;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 10px rgba(#0d1117, 0.3);
     background-blend-mode: overlay;
     transition: background-color 0.5s ease-in-out;
+  }
+
+  // Mobile Menu
+  .mobile-nav-toggle {
+    // background-color: transparent;
+    display: none;
+
+    @include max-breakpoint(medium) {
+      display: block;
+      position: absolute;
+      z-index: 9999;
+      background-position: center;
+      background-color: transparent;
+      background-size: cover;
+      color: white; //black;
+      background-repeat: no-repeat;
+      width: 2rem;
+      border: 0;
+      aspect-ratio: 1;
+      top: 1.5em;
+      right: 1.5em;
+    }
   }
 </style>

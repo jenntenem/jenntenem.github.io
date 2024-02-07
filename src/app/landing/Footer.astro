@@ -13,6 +13,8 @@ import Findmein from "@components/Findmein.astro";
 </footer>
 
 <style lang="scss" scoped>
+  @use "../../assets/scss/base/_mixins" as *;
+
   footer {
     background-color: rgba(#e7eef3, 0.05);
     color: #fff;
@@ -22,9 +24,7 @@ import Findmein from "@components/Findmein.astro";
     padding: 1.5rem 0;
 
     > div {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      @include flex-row();
       align-items: center;
 
       a {

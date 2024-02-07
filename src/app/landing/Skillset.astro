@@ -111,37 +111,29 @@ const skillSet = [
 
 <style lang="scss">
   @use "../../assets/scss/base/_breakpoint" as *;
+  @use "../../assets/scss/base/_mixins" as *;
 
   section {
     padding: 3rem 0;
 
     div.container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include flex-column(center);
       gap: 2rem;
 
       .skill-set {
-        display: flex;
+        @include flex-column(center);
         gap: 1.1rem;
         align-items: stretch;
         flex-wrap: wrap;
 
-        @include breakpoint(small) {
-          flex-direction: column;
-          justify-content: center;
-        }
-
         @include breakpoint(medium or large) {
-          flex-direction: row;
-          justify-content: space-between;
+          @include flex-row(center);
           background-color: transparent;
         }
 
         > div.skill {
           flex: 1 33%;
-          display: flex;
-          flex-direction: column;
+          @include flex-column(flex-start);
           padding: 2rem;
 
           @include breakpoint(large) {

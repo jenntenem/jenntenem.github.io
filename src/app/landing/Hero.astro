@@ -28,22 +28,21 @@ const hero_data = {
 
 <style lang="scss">
   @use "../../assets/scss/base/_breakpoint" as *;
+  @use "../../assets/scss/base/_mixins" as *;
 
   section.hero {
     // display: block;
     height: 100vh;
     top: 0;
-    display: flex;
+    @include flex-column(center);
     align-items: center;
-    justify-content: center;
+
     .grid {
       display: grid;
       grid-template-columns: 1fr;
 
       & > div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex-column(center);
       }
 
       @include breakpoint(medium or large) {

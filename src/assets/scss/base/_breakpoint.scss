@@ -18,3 +18,17 @@ $breakpoints: (
     @error "Not a correct value, check _base-breakpoints for available values.";
   }
 }
+
+@mixin max-breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else if (type_of($breakpoint) == number) {
+    @media (min-width: $breakpoint+"px") {
+      @content;
+    }
+  } @else {
+    @error "Not a correct value, check _base-breakpoints for available values.";
+  }
+}

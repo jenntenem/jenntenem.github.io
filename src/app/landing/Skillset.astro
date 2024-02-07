@@ -55,7 +55,7 @@ const skillSet = [
       {
         skillSet.map((project) => {
           return (
-            <div class="skill mouse-cursor-gradient-tracking hidden">
+            <div class="card skill mouse-cursor-gradient-trackin hiddenx">
               <div>
                 <Icon
                   pack={project.icon.pack}
@@ -143,9 +143,6 @@ const skillSet = [
           display: flex;
           flex-direction: column;
           padding: 2rem;
-          border: 1px solid rgba(#e7eef3, 0.15);
-          border-radius: 5%;
-          background-color: rgba(#e7eef3, 0.05);
 
           @include breakpoint(large) {
             flex-basis: 0%;

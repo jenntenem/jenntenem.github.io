@@ -1,7 +1,12 @@
 body {
   background-color: #0d1117; // #0d1117, #28303D
   color: #f3f6fb;
-  font-family: "Palanquin", sans-serif;
+  font-family: "Mona Sans", "Palanquin", "sans-serif";
+
+  line-height: 1.5;
+  min-height: 100vh;
+
+  overflow-x: hidden;
 }
 
 h2 {
@@ -16,5 +21,59 @@ h2 {
     left: 0;
     background-color: #39d353;
     margin-top: 0.5rem;
+    transition: width 0.3s 1s ease-in-out;
+  }
+}
+
+// AFTER EFECT FOR LINKS
+a,
+button {
+  text-decoration: none;
+  font-size: 1.125rem; //TODO: Change to rem
+  line-height: 1.6875rem; // CHANGE 1.6875rem;
+  transition: color 0.5s ease-in-out;
+}
+
+a {
+  color: #f3f6fb;
+  transform: scaleX(1);
+  position: relative;
+  &:hover,
+  &:focus {
+    // color: #39d353;
+
+    outline: none;
+    // transform: perspective(700px) rotateX(0.03deg) rotateY(0.03deg);
+
+    &::after {
+      content: "";
+      transform: scaleX(1);
+      transition: transform 0.3s ease-in-out;
+      transition-delay: 0.25s;
+    }
+    &::before {
+      content: "";
+      transform: scaleX(1);
+      transition: transform 0.3s ease-in-out;
+      transition-delay: 0.5s;
+    }
+  }
+
+  &:visited,
+  &:active {
+    color: #f3f6fb;
+  }
+  &::after {
+    content: "";
+    position: absolute; /* Cambiar de absolute a relative */
+    bottom: -0.15em;
+    left: 0;
+    width: calc(100% - 1em);
+    height: 2px;
+    pointer-events: none;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: transform 0.3s ease-in-out;
   }
 }

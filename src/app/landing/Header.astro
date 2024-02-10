@@ -55,7 +55,7 @@ const myMenu = [
                   href={item.url}
                   aria-label={item.name}
                   target={item.icon ? "_blank" : "_self"}
-                  class="style-line-bottom"
+                  class={item.icon ? "" : "style-line-bottom"}
                 >
                   {!item.icon && item.name}
                   {item.icon && <Icon pack="ion" name="logo-github" />}

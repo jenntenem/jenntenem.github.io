@@ -2,9 +2,9 @@
 
 .container {
   margin: 0px auto;
-  padding: 0 calc(4rem / 2);
-  max-width: 100%;
-  // width: calc(100% - (2 * calc(2rem / 2)));
+  padding: 0 calc(2rem / 2);
+  // max-width: 100%;
+  width: calc(100% - (2 * calc(2rem / 2)));
 
   @include breakpoint(medium) {
     padding: 0 4rem;

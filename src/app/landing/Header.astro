@@ -159,11 +159,11 @@ const myMenu = [
     width: 100%;
 
     .menu-container {
-      left: 50%;
       @extend .container;
       @include flex-row();
       flex-wrap: wrap;
       align-items: center;
+      // z-index: 9998;
 
       @include max-breakpoint(medium) {
         @include flex-column();
@@ -176,13 +176,17 @@ const myMenu = [
       .wrapper {
         display: flex;
         align-items: center;
-        gap: var(--base-size-16);
 
         nav {
+          // position: relative;
+
           ul.primary-navigation {
             display: flex;
             gap: var(--base-size-24);
             list-style-type: none;
+            -webkit-transform: translateZ(0);
+
+            // z-index: 1000;
             #logo-github {
               width: 30px;
               height: 30px;
@@ -192,15 +196,19 @@ const myMenu = [
           // Menu Items when is mobile view
           @include max-breakpoint(medium) {
             ul.primary-navigation {
-              position: relative;
+              position: fixed;
               display: block;
-              background-color: red;
               inset: 0 0 0 30%;
               background: hsl(0 0% 100% / 0.1); //hsl(0 0% 0% / 0.5);
+              // background: rgb(0, 0, 0);
               backdrop-filter: blur(1rem);
 
+
               position: fixed;
-              z-index: 1000;
+              // z-index: 1000;
+            
+              position: fixed;
+              // z-index: 1000;
               padding: min(20vh, 10rem) 2em;
               margin: 0;
 

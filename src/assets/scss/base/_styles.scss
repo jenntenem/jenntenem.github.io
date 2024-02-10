@@ -8,11 +8,12 @@
 
 // GRADIENT HOVER EFFECT OVER CARDS
 .mouse-cursor-gradient-tracking {
-  position: relative;
+  // position: relative;
   // border: none;
   // cursor: pointer;
   // outline: none;
   overflow: hidden;
+  // pointer-events: none;
 
   &::before {
     --size: 0;
@@ -34,4 +35,21 @@
   &:hover::before {
     --size: 500px;
   }
+
+  img {
+    overflow: hidden;
+    z-index: -1 !important;
+  }
 }
+
+/*[data-target="card-skew.shine"] {
+    width: 650px;
+    height: 650px;
+    background-color: var(--mktg-accent-primary);
+    filter: blur(180px);
+    border-radius: 300px;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    mix-blend-mode: soft-light;
+    will-change: transform;
+}*/

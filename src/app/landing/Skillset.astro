@@ -73,20 +73,9 @@ const skillSet = [
   </div>
 </section>
 <script>
-  let buttons = document.querySelectorAll(".mouse-cursor-gradient-tracking");
-  buttons.forEach((button) => {
-    button.addEventListener("mousemove", (e) => {
-      let rect = button.getBoundingClientRect();
-      // @ts-ignore
-      let x = e.clientX - rect.left;
-      // @ts-ignore
-      let y = e.clientY - rect.top;
-      // @ts-ignore
-      button.style.setProperty("--x", x + "px");
-      // @ts-ignore
-      button.style.setProperty("--y", y + "px");
-    });
-  });
+  import eventGradientTracking from "src/assets/js/mouse_cursor_gradient_tracking.js";
+
+  eventGradientTracking(document);
 
   function animateElements() {
     hiddenElements.forEach((element) => {
@@ -206,34 +195,6 @@ const skillSet = [
           }
         }
       }
-    }
-  }
-  .mouse-cursor-gradient-tracking {
-    position: relative;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    overflow: hidden;
-
-    &::before {
-      --size: 0;
-      content: "";
-      position: absolute;
-      left: var(--x);
-      top: var(--y);
-      width: var(--size);
-      height: var(--size);
-      background: radial-gradient(
-        circle closest-side,
-        rgba(#39d353, 0.3),
-        transparent
-      );
-      transform: translate(-50%, -50%);
-      transition: width 0.2s ease, height 0.2s ease;
-    }
-
-    &:hover::before {
-      --size: 500px;
     }
   }
 </style>

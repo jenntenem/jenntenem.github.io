@@ -5,3 +5,33 @@
   border: 1px solid rgba(#e7eef3, 0.15);
   background-color: rgba(#e7eef3, 0.05);
 }
+
+// GRADIENT HOVER EFFECT OVER CARDS
+.mouse-cursor-gradient-tracking {
+  position: relative;
+  // border: none;
+  // cursor: pointer;
+  // outline: none;
+  overflow: hidden;
+
+  &::before {
+    --size: 0;
+    content: "";
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(
+      circle closest-side,
+      rgba(#39d353, 0.3),
+      transparent
+    );
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+  }
+
+  &:hover::before {
+    --size: 500px;
+  }
+}

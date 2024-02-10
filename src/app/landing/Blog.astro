@@ -13,7 +13,7 @@ const myBlog = {
 
 <section id="blog-section">
   <div class="container">
-    <div class="card blog">
+    <div class="card blog mouse-cursor-gradient-tracking">
       <!-- Introduction to my blog -->
       <div>
         <p>
@@ -22,11 +22,7 @@ const myBlog = {
         </p>
 
         <div class="link-icon">
-          <a
-            class="style-line-bottom"
-            href={myBlog.url}
-            target="_blank"
-          >
+          <a class="style-line-bottom" href={myBlog.url} target="_blank">
             {myBlog.action}
             <Icon name="fa-solid:arrow-right" width="12" />
           </a>
@@ -43,6 +39,11 @@ const myBlog = {
     </div>
   </div>
 </section>
+
+<script>
+  import eventGradientTracking from "src/assets/js/mouse_cursor_gradient_tracking.js";
+  eventGradientTracking(document);
+</script>
 
 <style lang="scss">
   @use "../../assets/scss/base/_breakpoint" as *;

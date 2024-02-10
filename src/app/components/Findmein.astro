@@ -57,17 +57,15 @@ const { class: className = "" } = Astro.props;
 
 <style lang="scss">
   @use "../../assets/scss/base/_social_media" as *;
+  @use "../../assets/scss/base/_mixins" as *;
 
   .socialBar {
-    display: flex;
-    flex-direction: column;
+    @include flex-column(center);
     align-items: center;
-    justify-content: center;
     background-color: transparent;
     color: #f3f6fb;
     ul {
-      display: flex;
-      justify-content: space-around;
+      @include flex-row(space-around);
       list-style-type: none;
       flex-wrap: nowrap;
       padding: 0;

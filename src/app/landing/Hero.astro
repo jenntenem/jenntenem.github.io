@@ -18,7 +18,7 @@ const hero_data = {
   <div class="container grid">
     <div>
       <h1><span>{hero_data.title}</span></h1>
-      <h2>{hero_data.subtitle}</h2>
+      <h2><span>{hero_data.subtitle}</span></h2>
       <p style="--d: 0s">{hero_data.description}</p>
       <Findmein />
     </div>
@@ -38,14 +38,17 @@ const hero_data = {
     align-items: center;
 
     .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-
       & > div {
         @include flex-column(center);
       }
 
+      @include max-breakpoint(large) {
+        // padding: var(--base-size-64) 0;
+        padding-top: 2rem;
+      }
+
       @include breakpoint(medium or large) {
+        display: grid;
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -58,7 +61,7 @@ const hero_data = {
       letter-spacing: 2px;
       display: inline;
       font-size: 1rem;
-      font-weight: 300;
+      font-weight: var(--base-text-weight-light);
       line-height: 2.5;
       margin: 0px;
 
@@ -70,18 +73,19 @@ const hero_data = {
 
     h2 {
       margin: 0px;
-      font-size: 6rem;
+      font-size: var(--base-size-64) !important;
+      font-weight: var(--base-text-weight-semibold) !important;
+      line-height: var(--base-size-64) !important;
 
-      &::after {
-        content: "";
-        width: 0;
+      span {
+        font-size: 1em !important;
       }
     }
 
     p {
       color: #8490a4;
-      font-size: 1.5rem;
-      font-weight: 300;
+      font-size: var(--base-size-24);
+      font-weight: var(--base-text-weight-light);
       line-height: 1.5;
       margin: 20px 0px;
 

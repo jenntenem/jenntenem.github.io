@@ -7,22 +7,7 @@ body {
   min-height: 100vh;
 
   overflow-x: hidden;
-}
-
-h2 {
-  font-weight: normal;
-  font-size: 1.75rem;
-
-  &:after {
-    content: "";
-    display: block;
-    width: 4rem;
-    height: 0.15rem;
-    left: 0;
-    background-color: #39d353;
-    margin-top: 0.5rem;
-    transition: width 0.3s 1s ease-in-out;
-  }
+  font-size: 100%;
 }
 
 // AFTER EFECT FOR LINKS

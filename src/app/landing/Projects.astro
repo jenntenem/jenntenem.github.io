@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon";
 
 // Data
-const projects= [
+const projects = [
   {
     title: "Project 1",
     description: "This is a project I worked on.",
@@ -58,33 +58,33 @@ const projects= [
 <style lang="scss">
   section {
     margin: 4rem 0;
-    gap: 2rem;
+    gap: var(--base-size-32);
 
     div.container {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 1.25rem;
+      gap: var(--base-size-20);
     }
     .projects {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      gap: 2rem;
+      gap: var(--base-size-32);
 
       > div.project {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 2rem;
-        gap: 1.2rem;
-        border-radius: 1rem;
+        padding: var(--base-size-32);
+        gap: var(--base-size-20);
+        border-radius: var(--base-size-16);
         position: relative;
         border: 1px solid rgba(#e7eef3, 0.15);
         background-color: rgba(#e7eef3, 0.05);
 
         h3 {
-          font-size: 1.5rem;
+          font-size: var(--base-size-24);
           font-weight: var(--base-text-weight-light);
           color: #39d353;
         }

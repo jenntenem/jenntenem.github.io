@@ -22,7 +22,11 @@ const myBlog = {
         </p>
 
         <div class="link-icon">
-          <a class="link-mktg tf3-mktg style-line-bottom" href={myBlog.url} target="_blank">
+          <a
+            class="link-mktg tf3-mktg style-line-bottom"
+            href={myBlog.url}
+            target="_blank"
+          >
             {myBlog.action}
             <Icon name="fa-solid:arrow-right" width="12" />
           </a>
@@ -54,7 +58,7 @@ const myBlog = {
       > div {
         flex: 1;
         @include flex-column();
-        padding: 3rem;
+        padding: var(--base-size-48);
         // background-color: white;
 
         > p {
@@ -77,7 +81,7 @@ const myBlog = {
         img {
           width: 100%;
           // height: auto;
-          border-radius: 1rem;
+          border-radius: var(--base-size-16);
         }
       }
     }

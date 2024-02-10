@@ -117,13 +117,13 @@ const skills = [
 
 <style lang="scss">
   section {
-    padding: 1rem;
+    padding: var(--base-size-16);
 
     div.container {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 1rem;
+      // gap: var(--base-size-16); // OJO
 
       .skills {
         flex: 2.5;
@@ -131,22 +131,22 @@ const skills = [
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
+        gap: var(--base-size-16);
         margin: 1rem 0;
 
         > .skill {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 0.5rem;
+          gap: var(--base-size-8);
           // width: 100px;
           // height: 100px;
           //   border-radius: 10px;
-          padding: 0.35rem;
-          //   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          padding: var(--base-size-8);
+          // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
           > .name {
-            font-size: 0.8rem;
+            font-size: var(--base-size-12);
             font-weight: var(--base-text-weight-normal);
             text-align: center;
           }

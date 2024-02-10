@@ -118,11 +118,11 @@ const skillSet = [
 
     div.container {
       @include flex-column(center);
-      gap: 2rem;
+      gap: var(--base-size-32);
 
       .skill-set {
         @include flex-column(center);
-        gap: 1.1rem;
+        gap: var(--base-size-20);
         align-items: stretch;
         flex-wrap: wrap;
 
@@ -134,7 +134,7 @@ const skillSet = [
         > div.skill {
           flex: 1 33%;
           @include flex-column(flex-start);
-          padding: 2rem;
+          padding: var(--base-size-32);
 
           @include breakpoint(large) {
             flex-basis: 0%;
@@ -144,7 +144,7 @@ const skillSet = [
             letter-spacing: 2px;
             display: inline;
             font-weight: var(--base-text-weight-normal);
-            font-size: 1rem;
+            font-size: var(--base-size-16);
             line-height: 2.5;
             margin: 0px;
           }

@@ -24,7 +24,7 @@ a {
   &:hover,
   &:focus {
     // color: #39d353;
-
+    filter: drop-shadow(0 0 10px rgba(#39d353, 0.3));
     outline: none;
     // transform: perspective(700px) rotateX(0.03deg) rotateY(0.03deg);
   }
@@ -35,12 +35,11 @@ a {
   }
 
   &.style-line-bottom {
-    // color: green;
     transform: scaleX(1);
-    position: relative;
     &:hover,
     &:focus {
       // color: #39d353;
+      filter: drop-shadow(0 0 10px #39d353);
 
       &::after {
         content: "";

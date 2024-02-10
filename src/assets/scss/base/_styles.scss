@@ -1,7 +1,7 @@
 // CARD STYLES
 .card {
-  border-radius: 1rem;
-  position: relative;
+  border-radius: var(--base-size-32);
+  // position: relative;
   border: 1px solid rgba(#e7eef3, 0.15);
   background-color: rgba(#e7eef3, 0.05);
 }

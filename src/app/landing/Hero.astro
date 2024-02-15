@@ -22,7 +22,9 @@ const hero_data = {
       <p style="--d: 0s">{hero_data.description}</p>
       <Findmein />
     </div>
-    <img src={hero_data.image.src} alt={hero_data.image.alt} />
+    <div class="img-hero">
+      <img src={hero_data.image.src} alt={hero_data.image.alt} />
+    </div>
   </div>
 </section>
 
@@ -40,20 +42,30 @@ const hero_data = {
     .grid {
       & > div {
         @include flex-column(center);
-      }
+        margin-top: 25%;
 
-      @include max-breakpoint(large) {
-        // padding: var(--base-size-64) 0;
-        padding-top: var(--base-size-36);
+        &.img-hero {
+          justify-content: center;
+          align-items: center;
+          margin-top: 0%;
+        }
       }
 
       @include breakpoint(medium or large) {
         display: grid;
         grid-template-columns: 1fr 1fr;
       }
+
+      @include max-breakpoint(medium) {
+        @include flex-column(center);
+      }
     }
     img {
       width: 100%;
+
+      @include max-breakpoint(medium) {
+        height: 80%;
+      }
     }
 
     h1 {

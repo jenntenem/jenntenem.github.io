@@ -114,6 +114,10 @@ const myMenu = [
     (window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light");
+
+  document.documentElement.setAttribute("data-theme", "dark");
+
+  /*
   if (storedTheme)
     document.documentElement.setAttribute("data-theme", storedTheme);
 
@@ -146,6 +150,7 @@ const myMenu = [
     document.documentElement.setAttribute("data-theme", targetTheme);
     localStorage.setItem("theme", targetTheme);
   };
+  */
 </script>
 
 <style lang="scss">
@@ -203,10 +208,9 @@ const myMenu = [
               // background: rgb(0, 0, 0);
               backdrop-filter: blur(1rem);
 
-
               position: fixed;
               // z-index: 1000;
-            
+
               position: fixed;
               // z-index: 1000;
               padding: min(20vh, 10rem) 2em;

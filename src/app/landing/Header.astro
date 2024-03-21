@@ -3,17 +3,7 @@ import { Icon } from "astro-icon";
 import { LanguageSelector } from "astro-i18next/components";
 
 // Menu Data
-const myMenu = [
-  { name: "Home", url: "/" },
-  // { name: "About Me", url: "#about" },
-  // { name: "Contact", url: "#contact" },
-  { name: "Projects", url: "#projects" },
-  {
-    name: "logo-github",
-    icon: "logo-github",
-    url: "https://github.com/jenntenem",
-  },
-];
+const { data: menu, username = "" } = Astro.props;
 ---
 
 <header>
@@ -22,7 +12,7 @@ const myMenu = [
     <a href="/" id="logo">
       <img
         src={(await import("../assets/img/logo.svg")).default}
-        alt="My Logo"
+        alt={username}
         width="47"
         height="37"
       />
@@ -50,7 +40,7 @@ const myMenu = [
           class="primary-navigation"
         >
           {
-            myMenu.map((item) => (
+            menu.map((item) => (
               <li id={item.name}>
                 <a
                   href={item.url}

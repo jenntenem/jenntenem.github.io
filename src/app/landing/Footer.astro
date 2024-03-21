@@ -1,12 +1,13 @@
 ---
 import Findmein from "@components/Findmein.astro";
+
+const { data } = Astro.props;
 ---
 
 <footer>
   <div class="container">
     <div>
-      <p>Built by <span><a href="/">Jenn</a></span></p>
-      <p>© 2023 All rights reserved.</p>
+      <p>{data.developer} <span>{data.user}</span></p>
     </div>
     <Findmein class="footer-logos" />
   </div>
@@ -27,12 +28,9 @@ import Findmein from "@components/Findmein.astro";
       @include flex-row();
       align-items: center;
 
-      a {
+      span {
+        font-weight: 400;
         color: #fff;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        }
       }
     }
   }

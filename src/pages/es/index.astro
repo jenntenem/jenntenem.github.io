@@ -1,23 +1,22 @@
 ---
 import { changeLanguage } from "i18next";
-
 // Layouts
-import DefaultLayout from "../layouts/DefaultLayout.astro";
-
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
 // Components
 import Hero from "@landing/Hero.astro";
+// import About from "@landing/About.astro";
 import Projects from "@landing/Projects.astro";
 import Skills from "@landing/Skills.astro";
 import Skillset from "@landing/Skillset.astro";
 import Blog from "@landing/Blog.astro";
 
-changeLanguage("en");
+changeLanguage("es");
 ---
 
-<DefaultLayout title="My Portfolio">
+<DefaultLayout>
   <Hero />
   <Skillset />
-  <Blog/>
+  <Blog />
   <Skills />
-  <!-- <Projects /> -->
+  <Projects />
 </DefaultLayout>

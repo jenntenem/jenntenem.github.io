@@ -1,4 +1,6 @@
 ---
+import i18next, { t } from "i18next";
+
 // Global SCSS
 import "../assets/scss/main.scss";
 
@@ -11,18 +13,18 @@ interface Props {
   title?: string;
 }
 
-const { title = "" } = Astro.props;
+const site = t("site", { returnObjects: true });
 ---
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang={i18next.language}>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="My Portfolio @jenntenem" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>jenntenem | {title}</title>
+    <title>site.title</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

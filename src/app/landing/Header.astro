@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon";
+import { LanguageSelector } from "astro-i18next/components";
 
 // Menu Data
 const myMenu = [
@@ -63,6 +64,7 @@ const myMenu = [
               </li>
             ))
           }
+          <li><LanguageSelector showFlag={false} /></li>
         </ul>
       </nav>
       <!-- <button id="theme-toggle">

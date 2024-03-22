@@ -5,4 +5,5 @@ import astroI18next from "astro-i18next";
 export default defineConfig({
   output: "server",
   integrations: [astroI18next()],
+  site: "https://jenntenem.github.io"
 });

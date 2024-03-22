@@ -1,10 +1,144 @@
 {
+  "username": "jenntenem",
   "site": {
-    "title": "My awesome website! ESP",
-    "description": "Here is the description of my awesome website!"
+    "title": "Jenntenem | Portfolio",
+    "description": "Jenntenem | Fullstack Web Developer"
   },
-  "home": {
-    "title": "Welcome to my awesome website!",
-    "subtitle": "This is a <0>more complex</0> string to translate, mixed with <1>html elements</1>, such as a <2>a cool link</2>!"
+  "index": {
+    "nav": [
+      {
+        "name": "Inicio",
+        "url": "/"
+      },
+      {
+        "name": "Tecnologías",
+        "url": "#knowledge"
+      },
+      {
+        "name": "logo-github",
+        "icon": true,
+        "url": "https://github.com/jenntenem"
+      }
+    ],
+    "about": {
+      "title": "Jenniffer Tenempaguay",
+      "subtitle": "Hola, Soy Jenn!",
+      "description": "Soy desarrolladora web fullstack. Me gusta aprender y crear sitios web/aplicaciones hermosas y funcionales."
+    },
+    "skills": {
+      "title": "Servicios",
+      "content": [
+        {
+          "title": "Control de versiones con Git",
+          "content": "Con dominio en Git, aseguro un control eficiente de versiones para sus proyectos, facilitando la colaboración sin problemas y la gestión del código.",
+          "icon": "mdi:github"
+        },
+        {
+          "title": "Desarrollo web",
+          "content": "Desde el diseño de interfaces de usuario cautivadoras hasta la creación de aplicaciones web robustas, me especializo en dar vida a su presencia en línea con creatividad y funcionalidad.",
+          "icon": "ph:globe-thin"
+        },
+        {
+          "title": "Desarrollo backend",
+          "content": "Aprovechando mi experiencia en tecnologías backend, desarrollo soluciones escalables y seguras en el servidor adaptadas a sus requisitos específicos, garantizando un rendimiento óptimo y confiabilidad.",
+          "icon": "tabler:server"
+        },
+        {
+          "title": "Freelance",
+          "content": "Como profesional independiente, ofrezco soluciones flexibles y personalizadas para satisfacer las necesidades de su proyecto, brindando un soporte dedicado y entregas oportunas..",
+          "icon": "bytesize:work"
+        }
+      ]
+    },
+    "blog": {
+      "title": "Sumérgete en Mi Trayectoria de Desarrollo",
+      "content": "Explora mi blog para echar un vistazo a mis aventuras codificando. Desde abordar problemas complejos hasta crear soluciones elegantes, cada artículo refleja mi pasión por el desarrollo y la innovación.",
+      "action": "¡Descubre mi último artículo en Medium!",
+      "url": "https://medium.com/@jenntenem"
+    },
+    "socialmedia": {
+      "title": "Sígame en las redes sociales",
+      "description": "Si gustas, puedes seguirme en las siguientes plataformas.",
+      "action": "Sígueme",
+      "content": [
+        {
+          "name": "GitHub",
+          "path": "https://github.com/jenntenem",
+          "icon": "mdi:github"
+        },
+        {
+          "name": "GitLab",
+          "path": "https://gitlab.com/jenntenem",
+          "icon": "mdi:gitlab"
+        },
+        {
+          "name": "Twitter",
+          "path": "https://twitter.com/jenntenem",
+          "icon": "mdi:twitter"
+        },
+        {
+          "name": "LinkedIn",
+          "path": "https://www.linkedin.com/in/jenntenem/",
+          "icon": "mdi:linkedin"
+        }
+      ]
+    },
+    "knowledge": {
+      "title": "Conocimientos",
+      "content": [
+        {
+          "name": "Html",
+          "icon": "vscode-icons:file-type-html"
+        },
+        {
+          "name": "Css",
+          "icon": "vscode-icons:file-type-css"
+        },
+        {
+          "name": "Javascript",
+          "icon": "logos:javascript"
+        },
+        {
+          "name": "Typescript",
+          "icon": "logos:typescript-icon"
+        },
+        {
+          "name": "Angular",
+          "icon": "vscode-icons:file-type-angular"
+        },
+        {
+          "name": "Python",
+          "icon": "vscode-icons:file-type-python"
+        },
+        {
+          "name": "Nodejs",
+          "icon": "vscode-icons:file-type-node"
+        },
+        {
+          "name": "React",
+          "icon": "logos:react"
+        },
+        {
+          "name": "Nextjs",
+          "icon": "teenyicons:nextjs-outline"
+        },
+        {
+          "name": "Astro",
+          "icon": "vscode-icons:file-type-astro"
+        },
+        {
+          "name": "Sql Server",
+          "icon": "simple-icons:microsoftsqlserver"
+        },
+        {
+          "name": "Postgresql",
+          "icon": "logos:postgresql"
+        }
+      ]
+    },
+    "footer": {
+      "developer": "Desarrollado por ",
+      "user": "Jenn 👩‍💻"
+    }
   }
 }

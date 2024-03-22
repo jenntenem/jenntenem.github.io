@@ -7,7 +7,7 @@ const { data } = Astro.props;
 <footer>
   <div class="container">
     <div>
-      <p>{data.developer} <span>{data.user}</span></p>
+      <p>{data.developer} <span><a>{data.user}</a></span></p>
     </div>
     <Findmein class="footer-logos" />
   </div>
@@ -21,7 +21,7 @@ const { data } = Astro.props;
     color: #fff;
     text-align: left;
 
-    font-size: var(--base-size-12);
+    font-size: var(--base-size-16);
     padding: 1.5rem 0;
 
     > div {

@@ -7,17 +7,17 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 // Components
 import Hero from "@landing/Hero.astro";
 import Projects from "@landing/Projects.astro";
-import Skills from "@landing/Skills.astro";
+import Knowledges from "@landing/Knowledges.astro";
 import Skillset from "@landing/Skillset.astro";
 import Blog from "@landing/Blog.astro";
 
 changeLanguage("en");
 ---
 
-<DefaultLayout title="My Portfolio">
+<DefaultLayout>
   <Hero />
   <Skillset />
-  <Blog/>
-  <Skills />
+  <Knowledges />
+  <Blog />
   <!-- <Projects /> -->
 </DefaultLayout>

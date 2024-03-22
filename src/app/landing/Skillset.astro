@@ -8,18 +8,14 @@ const skills = t("index.skills", { returnObjects: true }) as any;
 
 <section>
   <div class="container">
-    <h2>skills.title</h2>
+    <h2>{skills.title}</h2>
     <div class="skill-set">
       {
         skills.content.map((project) => {
           return (
             <div class="card skill mouse-cursor-gradient-tracking hiddenx">
               <div>
-                <Icon
-                  pack={project.icon.pack}
-                  name={project.icon.name}
-                  class="icon"
-                />
+                <Icon name={project.icon} class="icon" />
               </div>
               <h3>{project.title}</h3>
               <p>{project.content}</p>

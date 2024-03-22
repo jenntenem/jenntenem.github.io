@@ -10,7 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.1.5",
+    "@astrojs/node": "^8.2.5",
+    "astro": "^4.5.8",
     "astro-i18next": "^1.0.0-beta.21",
     "astro-icon": "^0.8.0",
     "normalize.css": "^8.0.1",

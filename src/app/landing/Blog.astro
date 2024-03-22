@@ -1,14 +1,9 @@
 ---
 import { Icon } from "astro-icon";
+import { t } from "i18next";
 
 // Data
-const myBlog = {
-  title: "My Blog lorem",
-  content:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vestibulum vel, facilisis ut, auctor nec, egestas feugiat, mi.",
-  action: "Discover GitHub Actions",
-  url: "https://medium.com/@jenntenem",
-};
+const blog = t("index.blog", { returnObjects: true }) as any;
 ---
 
 <section id="blog-section">
@@ -17,13 +12,13 @@ const myBlog = {
       <!-- Introduction to my blog -->
       <div>
         <p>
-          <span>{myBlog.title}</span>
-          {myBlog.content}
+          <span>{blog.title}</span>
+          {blog.content}
         </p>
 
         <div>
-          <a class="style-line-bottom" href={myBlog.url} target="_blank">
-            {myBlog.action}
+          <a class="style-line-bottom" href={blog.url} target="_blank">
+            {blog.action}
             <Icon name="fa-solid:arrow-right" width="12" />
           </a>
         </div>
@@ -31,7 +26,7 @@ const myBlog = {
       <!-- Image Blog -->
       <div class="img-blog">
         <img
-          src="src/assets/img/blog.png"
+          src={blog.image || "https://via.placeholder.com/400x300"}
           alt="Blog medium Jenniffer Tenempaguyay"
         />
         <!-- https://via.placeholder.com/400x300 -->
@@ -50,6 +45,7 @@ const myBlog = {
   @use "../../assets/scss/base/_mixins" as *;
   section#blog-section {
     .blog {
+      margin-bottom: var(--base-size-48);
       @include flex-column();
 
       @include breakpoint(medium or large) {

@@ -1,61 +1,19 @@
 ---
 import { Icon } from "astro-icon";
+import { t } from "i18next";
 
 // Data
-const skillSet = [
-  {
-    title: "Git Version Control",
-    description: "This is a project I worked on.",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
-    icon: {
-      pack: "mdi",
-      name: "github",
-    },
-  },
-  {
-    title: "Web Development",
-    description: "This is a project I worked on.",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
-    icon: {
-      pack: "ph",
-      name: "globe-thin",
-    },
-  },
-  {
-    title: "Back-end Development",
-    description: "This is a project I worked on.",
-    link: "https://google.com",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
-    icon: {
-      pack: "",
-      name: "tabler:server",
-    },
-  },
-  {
-    title: "Freelance",
-    description: "This is a project I worked on.",
-    link: "https://google.com",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est corrupti repudiandae animi.",
-    icon: {
-      pack: "",
-      name: "bytesize:work",
-    },
-  },
-];
+const skills = t("index.skills", { returnObjects: true }) as any;
 ---
 
 <section>
   <div class="container">
-    <h2>My services</h2>
+    <h2>skills.title</h2>
     <div class="skill-set">
       {
-        skillSet.map((project) => {
+        skills.content.map((project) => {
           return (
-            <div class="card skill mouse-cursor-gradient-tracking hidden">
+            <div class="card skill mouse-cursor-gradient-tracking hiddenx">
               <div>
                 <Icon
                   pack={project.icon.pack}

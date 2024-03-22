@@ -1,102 +1,17 @@
 ---
 import { Icon } from "astro-icon";
+import { t } from "i18next";
 
 // Data
-const skills = [
-  {
-    name: "Html",
-    icon: {
-      pack: "vscode-icons",
-      name: "file-type-html",
-    },
-  },
-
-  {
-    name: "Css",
-    icon: {
-      pack: "vscode-icons",
-      name: "file-type-css",
-    },
-  },
-  {
-    name: "Javascript",
-    icon: {
-      pack: "logos",
-      name: "javascript",
-    },
-  },
-  {
-    name: "Typescript",
-    icon: {
-      pack: "logos",
-      name: "typescript-icon",
-    },
-  },
-  {
-    name: "Angular",
-    icon: {
-      pack: "vscode-icons",
-      name: "file-type-angular",
-    },
-  },
-  {
-    name: "Python",
-    icon: {
-      pack: "vscode-icons",
-      name: "file-type-python",
-    },
-  },
-  {
-    name: "Nodejs",
-    icon: {
-      pack: "vscode-icons",
-      name: "file-type-node",
-    },
-  },
-  {
-    name: "React",
-    icon: {
-      pack: "logos",
-      name: "react",
-    },
-  },
-  {
-    name: "Nextjs",
-    icon: {
-      pack: "teenyicons",
-      name: "nextjs-outline",
-    },
-  },
-  {
-    name: "Astro",
-    icon: {
-      pack: "vscode-icons",
-      name: "file-type-astro",
-    },
-  },
-  {
-    name: "Sql Server",
-    icon: {
-      pack: "simple-icons",
-      name: "microsoftsqlserver",
-    },
-  },
-  {
-    name: "Postgresql",
-    icon: {
-      pack: "logos",
-      name: "postgresql",
-    },
-  },
-];
+const data = t("index.knowledge", { returnObjects: true }) as any;
 ---
 
 <section>
   <div class="container">
-    <h2>Technologies</h2>
+    <h2>{data.title}</h2>
     <div class="skills">
       {
-        skills.map((skill) => {
+        data.content.map((skill) => {
           return (
             <div class="skill">
               <span>

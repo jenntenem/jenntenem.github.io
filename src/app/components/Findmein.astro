@@ -1,33 +1,12 @@
 ---
 import { Icon } from "astro-icon";
+import { t } from "i18next";
 
 // Data for social media icons
-const socialMedia = [
-  {
-    name: "GitHub",
-    path: "/",
-    pack: "mdi",
-    icon: "github",
-  },
-  {
-    name: "GitLab",
-    path: "/",
-    pack: "mdi",
-    icon: "gitlab",
-  },
-  {
-    name: "Twitter",
-    path: "/",
-    pack: "mdi",
-    icon: "twitter",
-  },
-  {
-    name: "LinkedIn",
-    path: "/",
-    pack: "mdi",
-    icon: "linkedin",
-  },
-];
+
+const socialMedia = t("index.socialmedia.content", {
+  returnObjects: true,
+}) as any;
 
 // Props
 interface Props {

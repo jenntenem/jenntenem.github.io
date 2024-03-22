@@ -13,7 +13,8 @@ interface Props {
   title?: string;
 }
 
-const site = t("site", { returnObjects: true });
+const site = t("site", { returnObjects: true }) as any;
+const index = t("index", { returnObjects: true }) as any;
 ---
 
 <!DOCTYPE html>
@@ -33,10 +34,10 @@ const site = t("site", { returnObjects: true });
     />
   </head>
   <body>
-    <Header />
+    <Header username={t("username")} data={index.nav} />
     <main>
       <slot />
     </main>
-    <Footer />
+    <Footer data={index.footer} />
   </body>
 </html>

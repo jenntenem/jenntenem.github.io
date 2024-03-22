@@ -7,8 +7,4 @@ import node from "@astrojs/node";
 export default defineConfig({
   integrations: [astroI18next()],
   site: "https://jenntenem.github.io",
-  output: "server",
-  adapter: node({
-    mode: "standalone"
-  })
 });
